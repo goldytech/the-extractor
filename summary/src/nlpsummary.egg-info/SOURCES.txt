@@ -1,0 +1,17 @@
+README.rst
+setup.py
+src/nlpsummary.egg-info/PKG-INFO
+src/nlpsummary.egg-info/SOURCES.txt
+src/nlpsummary.egg-info/dependency_links.txt
+src/nlpsummary.egg-info/requires.txt
+src/nlpsummary.egg-info/top_level.txt
+src/nltk_text_summary/__init__.py
+src/nltk_text_summary/nltk_summary.py
+src/spacy_text_summary/__init__.py
+src/spacy_text_summary/singleton_meta.py
+src/spacy_text_summary/spacy_singleton.py
+src/spacy_text_summary/spacy_summary.py
+src/text_summary/__init__.py
+src/text_summary/summary_options.py
+src/text_summary/text_summary_base.py
+src/text_summary/text_summary_factory.py

@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: nlpsummary
+Version: 0.0.1
+Summary: Generic implementation of text summary
+Home-page: goldytech.wordpress.com
+Author: Muhammad Afzal Qureshi
+Author-email: afzal.qureshi@outlook.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
