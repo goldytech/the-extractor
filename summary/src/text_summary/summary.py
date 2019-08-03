@@ -25,7 +25,7 @@ def summarize(text_to_be_summarized: str, nlp_engine: SummaryOptions, size_of_su
     ranking = defaultdict(int)
     for i, sent in enumerate(sentences):
         w: object
-        for w in get_words_from_sentence(sent.text):
+        for w in re.findall(r"\w+", sent.text):
             if w in words_frequency:
                 ranking[i] += words_frequency[w]
 
@@ -33,9 +33,4 @@ def summarize(text_to_be_summarized: str, nlp_engine: SummaryOptions, size_of_su
     return [sentences[j] for j in sorted(sentences_index)]
 
 
-def get_words_from_sentence(sentence):
-    """
 
-    :type sentence: str
-    """
-    return re.findall(r"\w+", sentence)

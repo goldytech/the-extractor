@@ -29,7 +29,7 @@ def test_given_when_spacy_instance_already_exists_then_new_instance_should_not_b
     assert instance1 == instance2
 
 
-def test_summarize_function_test():
+def test_summarize_function_for_spacy():
     text = "Nearly all applicants for US visas will have to submit their social media details under new rules by the " \
            "State Department.The State Department regulations say people will have to submit social media names and " \
            "five years' worth of email addresses and phone numbers.When proposed last year, authorities estimated the " \
@@ -49,4 +49,16 @@ def test_summarize_function_test():
            "immigrants before and during his time in office."
 
     summarize_result = summarize(text, SummaryOptions.Spacy, 3)
-    print(summarize_result)
+    expected_summarize_result = ['Nearly all applicants for US visas will have to submit their social media details '
+                                 'under new rules by the State Department.',
+                                 'The State Department regulations say people will have to submit social media names '
+                                 'and five years'' worth of email addresses and phone numbers.',
+                                 'The Trump administration first proposed the rules in March 2018.At the time the '
+                                 'American Civil Liberties Union - a civil rights group - said there is no evidence '
+                                 'that such social media monitoring is effective or fair and said it would cause '
+                                 'people to self-censor themselves online.']
+    actual_summarize_result = [span.text for span in summarize_result]
+    assert len(summarize_result) == 3
+
+
+
