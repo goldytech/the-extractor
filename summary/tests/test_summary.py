@@ -31,8 +31,8 @@ def test_given_when_spacy_instance_already_exists_then_new_instance_should_not_b
 
 @pytest.mark.parametrize("nlp_engine",
                          [
-                             (NlpEngines.Spacy),
-                             (NlpEngines.Ntlk)
+                             NlpEngines.Spacy,
+                             NlpEngines.Ntlk
                          ])
 def test_summarize_function_for_given_nlp_engines(nlp_engine):
     text = "Nearly all applicants for US visas will have to submit their social media details under new rules by the " \
@@ -54,15 +54,6 @@ def test_summarize_function_for_given_nlp_engines(nlp_engine):
            "immigrants before and during his time in office."
 
     summarize_result = summarize(text, 3, nlp_engine)
-    expected_summarize_result = ['Nearly all applicants for US visas will have to submit their social media details '
-                                 'under new rules by the State Department.',
-                                 'The State Department regulations say people will have to submit social media names '
-                                 'and five years'' worth of email addresses and phone numbers.',
-                                 'The Trump administration first proposed the rules in March 2018.At the time the '
-                                 'American Civil Liberties Union - a civil rights group - said there is no evidence '
-                                 'that such social media monitoring is effective or fair and said it would cause '
-                                 'people to self-censor themselves online.']
-
     assert len(summarize_result) == 3
 
 
