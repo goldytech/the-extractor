@@ -4,12 +4,14 @@ blis==0.2.4
 certifi==2019.6.16
 chardet==3.0.4
 colorama==0.4.1
+coverage==4.5.3
 cymem==2.0.2
 en-core-web-sm==2.1.0
 idna==2.8
 importlib-metadata==0.18
 more-itertools==7.1.0
 murmurhash==1.0.2
+nltk==3.4.4
 numpy==1.16.4
 packaging==19.0
 plac==0.9.6
@@ -18,6 +20,7 @@ preshed==2.0.1
 py==1.8.0
 pyparsing==2.4.0
 pytest==5.0.1
+pytest-cov==2.7.1
 requests==2.22.0
 six==1.12.0
 spacy==2.1.6

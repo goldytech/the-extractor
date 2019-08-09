@@ -3,20 +3,23 @@ from collections import Counter, defaultdict
 from heapq import nlargest
 from typing import List
 
-from text_summary.summary_options import SummaryOptions
+from text_summary.summary_options import NlpEngines
 from text_summary.text_summary_base import TextSummaryBase
 from text_summary.text_summary_factory import TextSummaryFactory
+from . import NLP_ENGINE
 
 
-def summarize(text_to_be_summarized: str, nlp_engine: SummaryOptions, size_of_summary) -> List[str]:
+def summarize(text_to_be_summarized: str, size_of_summary, nlp_engine=None) -> List[str]:
     """
 
+    :type size_of_summary: int
     :param size_of_summary: int
     :return: List[str]
     :param text_to_be_summarized: str
-    :type nlp_engine: SummaryOptions
+    :type nlp_engine: NlpEngines
     """
-    nlp_factory = TextSummaryFactory(nlp_engine)
+    selected_nlp = nlp_engine if nlp_engine else NLP_ENGINE
+    nlp_factory = TextSummaryFactory(selected_nlp)
     nlp_instance: TextSummaryBase = nlp_factory.get_instance
     words: List[str]
     sentences: List[str]
@@ -25,7 +28,8 @@ def summarize(text_to_be_summarized: str, nlp_engine: SummaryOptions, size_of_su
     ranking = defaultdict(int)
     for i, sent in enumerate(sentences):
         w: object
-        for w in re.findall(r"\w+", sent.text):
+        sentence = sent.text if nlp_engine == NlpEngines.Spacy else sent
+        for w in re.findall(r"\w+", sentence):
             if w in words_frequency:
                 ranking[i] += words_frequency[w]
 
