@@ -7,6 +7,7 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from text_summary.text_summary_base import TextSummaryBase
 
 
+# nltk Strategy
 class NltkSummary(TextSummaryBase):
     def get_words_and_sentences(text: str) -> tuple:
         sentences = sent_tokenize(text)

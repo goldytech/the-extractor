@@ -4,6 +4,8 @@ from spacy_text_summary.spacy_singleton import SpacySingleton
 from text_summary.text_summary_base import TextSummaryBase
 
 
+# Spacy Strategy
+
 class SpacySummary(TextSummaryBase):
     def get_words_and_sentences(text: str) -> tuple:
         spacy_singleton = SpacySingleton()

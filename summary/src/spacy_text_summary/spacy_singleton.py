@@ -6,6 +6,7 @@ from spacy.lang.en import STOP_WORDS
 from .singleton_meta import Singleton
 
 
+# Singleton class of Spacy
 class SpacySingleton(metaclass=Singleton):
     spacy_nlp: object
     stopwords: List[str]
